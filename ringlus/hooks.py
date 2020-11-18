@@ -26,8 +26,12 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
-# doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
+doctype_js = {"BOM" : "public/js/bom.js",
+"Production Plan":"public/js/production_plan.js",
+"Purchase Receipt":"public/js/purchase_receipt.js",
+"Quotation":"public/js/quotation.js",
+"Sales Order":"public/js/sales_order.js"}
+doctype_list_js = {"Opportunity":"public/js/opportunity_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
@@ -79,13 +83,14 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
-# }
+doc_events = {
+ 	"BOM": { 
+        "on_change": "ringlus.ringlus.doctype.bom.bom_custom.on_BOM_after_submit",
+    },
+    "Sales Order":{
+        "on_submit":"ringlus.ringlus.doctype.sales_order.sales_order.on_sales_order_on_submit"
+    }
+}
 
 # Scheduled Tasks
 # ---------------
@@ -126,4 +131,4 @@ app_license = "MIT"
 # override_doctype_dashboards = {
 # 	"Task": "ringlus.task.get_dashboard_data"
 # }
-
+fixtures = ["Custom Field"]
