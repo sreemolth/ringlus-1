@@ -1,0 +1,80 @@
+{
+ "creation": "2020-11-19 16:01:36.803737",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "production_plan",
+  "product_serial_no",
+  "production_plan_status",
+  "delivery_date",
+  "delivery_status",
+  "sales_invoice_date",
+  "sales_invoice_status",
+  "sales_order"
+ ],
+ "fields": [
+  {
+   "fieldname": "production_plan",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Production Plan"
+  },
+  {
+   "fieldname": "production_plan_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Production Status",
+   "options": "Draft\nSubmitted\nNot Started\nIn Process\nCompleted\nStopped\nCancelled\nMaterial Requested"
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Sales Order",
+   "options": "Sales Order"
+  },
+  {
+   "fieldname": "delivery_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Delivery Status",
+   "options": "Open\nDraft\nTo Bill\nCompleted\nCancelled\nClosed"
+  },
+  {
+   "fieldname": "product_serial_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Product Serial No",
+   "options": "Product Serial No"
+  },
+  {
+   "fieldname": "delivery_date",
+   "fieldtype": "Date",
+   "label": "Delivery Date"
+  },
+  {
+   "fieldname": "sales_invoice_date",
+   "fieldtype": "Date",
+   "label": "Sales Invoice Date"
+  },
+  {
+   "fieldname": "sales_invoice_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Sales Invoice Status",
+   "options": "Open\nDraft\nReturn\nCredit Note Issued\nSubmitted\nPaid\nUnpaid\nUnpaid and Discounted\nOverdue and Discounted\nOverdue\nCancelled"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-11-21 16:40:16.873229",
+ "modified_by": "Administrator",
+ "module": "Ringlus",
+ "name": "Production Plan Status",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

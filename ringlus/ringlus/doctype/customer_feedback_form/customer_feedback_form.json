@@ -1,0 +1,110 @@
+{
+ "creation": "2020-11-19 20:29:53.348454",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer_name",
+  "sales_order",
+  "date",
+  "product_quality",
+  "product_quality_material",
+  "on_time_delivery",
+  "product_price",
+  "mode_of_transportation",
+  "timely_response_of_your_enquiry",
+  "comments",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "customer_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Full Name",
+   "options": "Customer",
+   "reqd": 1,
+   "width": "50"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Customer Feedback Form",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "product_quality",
+   "fieldtype": "Rating",
+   "label": "Product Quality Dimensional"
+  },
+  {
+   "fieldname": "product_quality_material",
+   "fieldtype": "Rating",
+   "label": "Product Quality Material"
+  },
+  {
+   "fieldname": "on_time_delivery",
+   "fieldtype": "Rating",
+   "label": "On time Delivery"
+  },
+  {
+   "fieldname": "product_price",
+   "fieldtype": "Rating",
+   "label": "Product Price"
+  },
+  {
+   "fieldname": "mode_of_transportation",
+   "fieldtype": "Rating",
+   "label": "Mode of Transportation ?"
+  },
+  {
+   "fieldname": "timely_response_of_your_enquiry",
+   "fieldtype": "Rating",
+   "label": "Timely Response of your Enquiry"
+  },
+  {
+   "fieldname": "comments",
+   "fieldtype": "Text",
+   "label": "Please provide any additional comments or suggestions"
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "label": "Sales Order",
+   "options": "Sales Order"
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2020-11-20 11:18:25.315491",
+ "modified_by": "Administrator",
+ "module": "Ringlus",
+ "name": "Customer Feedback Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
