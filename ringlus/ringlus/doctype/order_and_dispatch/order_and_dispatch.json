@@ -1,4 +1,6 @@
 {
+ "allow_import": 1,
+ "autoname": "field:title",
  "creation": "2020-11-17 17:39:12.372194",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -6,13 +8,21 @@
  "field_order": [
   "title",
   "sales_order",
+  "posting_date",
+  "column_break_3",
+  "status",
+  "section_break_3",
+  "od_items",
+  "section_break_8",
+  "production_plan_no",
   "amended_from"
  ],
  "fields": [
   {
    "fieldname": "title",
    "fieldtype": "Data",
-   "label": "Title"
+   "label": "Title",
+   "unique": 1
   },
   {
    "fieldname": "sales_order",
@@ -28,10 +38,49 @@
    "options": "Order And Dispatch",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "\nOpen\nCompleted"
+  },
+  {
+   "fieldname": "od_items",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "Order And Dispatch Items",
+   "options": "Order and Dispatch Items"
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "production_plan_no",
+   "fieldtype": "Table",
+   "label": "Production  & Delivery Status",
+   "options": "Production Plan Status"
   }
  ],
  "is_submittable": 1,
- "modified": "2020-11-18 09:27:42.049092",
+ "modified": "2020-11-21 21:08:28.091955",
  "modified_by": "Administrator",
  "module": "Ringlus",
  "name": "Order And Dispatch",
@@ -46,6 +95,18 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
    "share": 1,
    "write": 1
   }

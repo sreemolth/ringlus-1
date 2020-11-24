@@ -1,0 +1,32 @@
+{
+ "add_total_row": 0,
+ "creation": "2020-11-21 23:06:56.872138",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "Ringlus Letter Head_1",
+ "modified": "2020-11-22 13:51:04.151705",
+ "modified_by": "Administrator",
+ "module": "Ringlus",
+ "name": "income Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "GL Entry",
+ "reference_report": "",
+ "report_name": "income Report",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Auditor"
+  }
+ ]
+}

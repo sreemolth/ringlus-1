@@ -1,0 +1,64 @@
+{
+ "creation": "2020-11-18 10:50:21.689139",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "delivery_date",
+  "delivery_status",
+  "sales_invoice_status",
+  "sales_order"
+ ],
+ "fields": [
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item ",
+   "options": "Item",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "delivery_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Delivery Date"
+  },
+  {
+   "default": "Open",
+   "fieldname": "delivery_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Delivery Status",
+   "options": "\nOpen\nDraft\nTo Bill\nCompleted\nCancelled\nClosed"
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Sales Order",
+   "options": "Sales Order"
+  },
+  {
+   "default": "Open",
+   "fieldname": "sales_invoice_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Sales Invoice status",
+   "options": "\nOpen\nDraft\nReturn\nCredit Note Issued\nSubmitted\nPaid\nUnpaid\nUnpaid and Discounted\nOverdue and Discounted\nOverdue\nCancelled"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-11-20 11:10:08.012078",
+ "modified_by": "Administrator",
+ "module": "Ringlus",
+ "name": "Order and Dispatch Items",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

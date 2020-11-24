@@ -1,5 +1,6 @@
 
 frappe.ui.form.on('BOM', {
+   
     validate: function (frm, cdt, cdn) {
         var total_oc = 0;
         var total_mc = 0;
@@ -46,5 +47,7 @@ frappe.ui.form.on('BOM', {
         frm.set_value("nested_operating_cost", nested_operating_cost);
         var total=nested_operating_cost+nmc
         frm.set_value("total_nested_bom_cost",total)
-    }
+    },
+    
+   
 });
