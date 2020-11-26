@@ -7,9 +7,11 @@ frappe.ui.form.on('BOM', {
         var nested_material_cost = 0;
         var nested_operating_cost = 0;
         var amc = 0;
+       var flag=0;
         $.each(frm.doc.items || [], function (i, s) {
             if (s.bom_no != '') {
                 var bom = s.bom_no
+                flag=1
                 frappe.call({
                     method: 'frappe.client.get_value',
                     args: {
@@ -28,7 +30,7 @@ frappe.ui.form.on('BOM', {
                             frm.set_value("mc_cost", total_mc);
                             frm.set_value("oc_cost", total_oc);
                         }
-                        frm.set_value("mc_cost", total_mc);
+                        //frm.set_value("mc_cost", total_mc);
                     }
                 });
             }
@@ -37,7 +39,13 @@ frappe.ui.form.on('BOM', {
                 frm.set_value("ncost", amc);
             }
         });
-       
+       if(flag==0)
+       {
+        frm.set_value("nested_material_cost", frm.doc.raw_material_cost) 
+        frm.set_value("nested_operating_cost", frm.doc.operating_cost);
+        var tot=frm.doc.nested_material_cost+frm.doc.nested_operating_cost;
+        frm.set_value("total_nested_bom_cost",tot)
+       }
     },
     mc_cost: function (frm) {
         var nmc = frm.doc.mc_cost + frm.doc.ncost
@@ -48,6 +56,7 @@ frappe.ui.form.on('BOM', {
         var total=nested_operating_cost+nmc
         frm.set_value("total_nested_bom_cost",total)
     },
+    
     
    
 });

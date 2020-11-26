@@ -27,11 +27,14 @@ def on_sales_order_on_submit(doc, handler=""):
     from `tabSales Order Item` si, `tabSales Order` s
     where s.name = si.parent and si.parenttype = 'Sales Order'
     and s.docstatus = 1 and si.parent = %s""",(doc.name),as_dict=1)
+    serialday=frappe.utils.get_datetime(doc.transaction_date).strftime('%d')
+    serialmnth=frappe.utils.get_datetime(doc.transaction_date).strftime('%m')
+    serialyear=frappe.utils.get_datetime(doc.transaction_date).strftime('%Y')
     for s in item_list:
         for x in range(int(s.qty)):
             item2 = frappe.new_doc('Product Serial No')
             item2.flags.ignore_permissions  = True
-            item2.serial_no = make_autoname(s.item_code + '-.#####')
+            item2.serial_no = make_autoname('RNG'+serialday+serialmnth+serialyear+'-.#####')
             item2.item_code = s.item_code
             item2.sales_order=doc.name
             item2.update({
