@@ -28,10 +28,11 @@ app_license = "MIT"
 # include js in doctype views
 doctype_js = {"BOM" : "public/js/bom.js",
 "Production Plan":"public/js/production_plan.js",
-"Purchase Receipt":"public/js/purchase_receipt.js",
+#"Purchase Receipt":"public/js/purchase_receipt.js",
 "Quotation":"public/js/quotation.js",
 "Sales Order":"public/js/sales_order.js",
-"Delivery Note":"public/js/delivery_note.js"}
+"Delivery Note":"public/js/delivery_note.js",
+"Material Reques":"public/js/material_request.js"}
 
 doctype_list_js = {"Opportunity":"public/js/opportunity_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
@@ -99,7 +100,8 @@ doc_events = {
         "on_change":"ringlus.ringlus.doctype.sales_invoice.sales_invoice.sales_invoice_on_save"
     },
     "Production Plan":{
-        "on_change":"ringlus.ringlus.doctype.production_plan.production_plan.production_plan_on_save"
+        "on_change":"ringlus.ringlus.doctype.production_plan.production_plan.production_plan_on_save",
+        #"on_submit":"ringlus.ringlus.doctype.production_plan.production_plan.make"
     }
 
 }
@@ -133,10 +135,7 @@ doc_events = {
 # Overriding Methods
 # ------------------------------
 #
-# override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "ringlus.event.get_events"
-# }
-#
+
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps

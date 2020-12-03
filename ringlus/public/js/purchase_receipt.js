@@ -1,5 +1,5 @@
 //this function may be not going to use
-frappe.ui.form.on("Purchase Receipt", {
+frappe.ui.form.on("Purchase Receipt1", {
 	setup: function(frm) {
 		 if (!frm.doc.__islocal) {
 		 frm.set_indicator_formatter('item_code',

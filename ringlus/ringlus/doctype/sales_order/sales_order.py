@@ -103,9 +103,9 @@ def on_sales_order_on_submit(doc, handler=""):
     and s.docstatus = 1 and si.parent = %s""",(doc.name),as_dict=1)
     production_plan_list = frappe.db.sql("""select production_plan_name,status,product_serial_no from `tabProduction Plan` where sales_order=%s""",(doc.name),as_dict=1)
     #if order_list1:
-    order_list = frappe.db.sql("""select sales_order from `tabOrder And Dispatch` where sales_order=%s""",(doc.name),as_dict=1)
+    order_list = frappe.db.sql("""select sales_order from `tabOrder n Dispatch` where sales_order=%s""",(doc.name),as_dict=1)
     if not order_list:
-        item1 = frappe.new_doc('Order And Dispatch')
+        item1 = frappe.new_doc('Order n Dispatch')
         item1.flags.ignore_permissions  = True
         item1.title = doc.name+"_"+ doc.customer
         item1.sales_order=doc.name
@@ -137,7 +137,7 @@ def on_sales_order_on_submit(doc, handler=""):
             'production_plan_no':item1.production_plan_no
             }).insert()
 
-    frappe.msgprint(msg = 'Order And Dispatch has been Created',
+    frappe.msgprint(msg = 'Order n Dispatch has been Created',
         title = 'Notification',
         indicator = 'green'
     )

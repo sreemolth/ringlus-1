@@ -1,7 +1,7 @@
 import frappe
 
 from frappe.model.naming import set_name_by_naming_series
-def sales_invoice_on_save(Anddoc,Handler=""):
+def sales_invoice_on_save(doc,Handler=""):
     for i in doc.items:
         item_list = frappe.db.sql("""select so.item_code,so.sales_order,so.product_serial_no
         from `tabSales Invoice Item` so where sales_order=%s and product_serial_no=%s
