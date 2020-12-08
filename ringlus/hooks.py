@@ -96,7 +96,7 @@ doc_events = {
     "Delivery Note":{
         "on_change":"ringlus.ringlus.doctype.delivery_note.delivery_note.delivery_note_on_save"
     },
-    "Sales Invoice":{
+   "Sales Invoice":{
         "on_change":"ringlus.ringlus.doctype.sales_invoice.sales_invoice.sales_invoice_on_save"
     },
     "Production Plan":{
