@@ -48,51 +48,52 @@ def on_sales_order_on_submit(doc, handler=""):
     count=0
     #serial_no_list = frappe.db.sql("""select serial_no from `tabProduct Serial No` where sales_order=%s""",(doc.name),as_dict=1)
     for d in item_list:
+       if d.bom_no:
         #for x in serial_no_list:
-        for x in range(int(d.qty)):
-            count=count+1
-            item = frappe.new_doc('Production Plan')
-            item.flags.ignore_permissions  = True
-            item.production_plan_name = doc.name +'_'+''+d.item_code+'_'+'Q'+str(count)
-            item.planned_completion_date = d.delivery_date
-            item.for_warehouse="Work In Progress - RNG"
-            #item.product_serial_no=x.serial_no
-            item.default_warehouse="Work In Progress - RNG"
-            item.sales_order=doc.name
-            item.get_items_for_mr=True
-            item_list1 = frappe.db.sql("""select name ,transaction_date,customer,grand_total from `tabSales Order` where name=%s """,(doc.name),as_dict=1)
-            for j in item_list1:
-                item.append('sales_orders', {
-                'sales_order': doc.name,
-                'sales_order_date': j.transaction_date,
-                'customer':j.customer,
-                'grand_total':j.grand_total
-            })
-            item_list2 = frappe.db.sql("""select si.item_code,si.item_name,si.qty,si.delivery_date,si.bom_no from `tabSales Order Item` si, `tabSales Order` s where s.name = si.parent and si.parenttype = 'Sales Order' and s.docstatus = 1 and si.parent = %s and si.item_code=%s""",(doc.name,d.item_code),as_dict=1)
-            for i in item_list2:
-                item.append('po_items', {
-                    'include_exploded_item':1,
-                    'item_code': i.item_code,
-                    'bom_no': i.bom_no,
-                    'planned_qty': 1,
+            for x in range(int(d.qty)):
+                count=count+1
+                item = frappe.new_doc('Production Plan')
+                item.flags.ignore_permissions  = True
+                item.production_plan_name = doc.name +'_'+''+d.item_code+'_'+'Q'+str(count)
+                item.planned_completion_date = d.delivery_date
+                item.for_warehouse="Work In Progress - RNG"
+                #item.product_serial_no=x.serial_no
+                item.default_warehouse="Work In Progress - RNG"
+                item.sales_order=doc.name
+                item.get_items_for_mr=True
+                item_list1 = frappe.db.sql("""select name ,transaction_date,customer,grand_total from `tabSales Order` where name=%s """,(doc.name),as_dict=1)
+                for j in item_list1:
+                    item.append('sales_orders', {
+                        'sales_order': doc.name,
+                        'sales_order_date': j.transaction_date,
+                        'customer':j.customer,
+                        'grand_total':j.grand_total
                 })
-            item.flags.ignore_permissions  = True
-            item.update({
-                'production_plan_name':item.production_plan_name,
-                'planned_completion_date': item.planned_completion_date,
-                'for_warehouse':item.for_warehouse,
-                'item_code':item.item_code,
-                #'product_serial_no':item.product_serial_no,
-                'get_items_for_mr':item.get_items_for_mr,
-                'default_warehouse':item.default_warehouse,
-                'sales_order':item.sales_order,
-                'sales_orders': item.sales_orders,
-                'po_items':item.po_items
-            }).insert()
-    frappe.msgprint(msg = 'Production Plan has been Created',
-        title = 'Notification',
-        indicator = 'green'
-    )
+                item_list2 = frappe.db.sql("""select si.item_code,si.item_name,si.qty,si.delivery_date,si.bom_no from `tabSales Order Item` si, `tabSales Order` s where s.name = si.parent and si.parenttype = 'Sales Order' and s.docstatus = 1 and si.parent = %s and si.item_code=%s""",(doc.name,d.item_code),as_dict=1)
+                for i in item_list2:
+                    item.append('po_items', {
+                        'include_exploded_item':1,
+                        'item_code': i.item_code,
+                        'bom_no': i.bom_no,
+                        'planned_qty': 1,
+                    })
+                item.flags.ignore_permissions  = True
+                item.update({
+                    'production_plan_name':item.production_plan_name,
+                    'planned_completion_date': item.planned_completion_date,
+                    'for_warehouse':item.for_warehouse,
+                    'item_code':item.item_code,
+                     #'product_serial_no':item.product_serial_no,
+                    'get_items_for_mr':item.get_items_for_mr,
+                    'default_warehouse':item.default_warehouse,
+                    'sales_order':item.sales_order,
+                    'sales_orders': item.sales_orders,
+                    'po_items':item.po_items
+                }).insert()
+            frappe.msgprint(msg = 'Production Plan has been Created',
+            title = 'Notification',
+            indicator = 'green'
+        )
     
     order_list1 = frappe.db.sql("""select si.item_code,si.delivery_date
     from `tabSales Order Item` si, `tabSales Order` s
