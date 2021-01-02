@@ -1,5 +1,4 @@
 frappe.ui.form.on('Sales Order Item', {
-    
     item_code: function(frm,cdt,cdn){
         var d = locals[cdt][cdn];
         var item_code = d.item_code;
