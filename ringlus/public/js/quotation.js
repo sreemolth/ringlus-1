@@ -188,14 +188,14 @@ activity_margin_amount: function(frm,cdt,cdn) {
             var  total_activity_overhead =0;
             var total_overhead_amount =0;
             $.each(frm.doc.items || [], function(i, v) {
-                total_Material_cost =(total_Material_cost + v.material_cost)*flt(v.qty)
-                total_activity_cost = (total_activity_cost + v.activity_cost) 
-                total_Material_margin_amount = total_Material_margin_amount + v.material_margin_amount*flt(v.qty)
-                total_activity_margin_amount = (total_activity_margin_amount + v.activity_margin_amount)*flt(v.qty)
-                total_Material_with_margin = (total_Material_with_margin + v.total_material_amount_with_margin)*flt(v.qty)
-                total_activity_with_margin = (total_activity_with_margin + v.total_activity_amount_with_margin)*flt(v.qty)
-                total_material_overhead     = (total_material_overhead + v.material_overhead_amount)*flt(v.qty)
-                total_activity_overhead     = (total_activity_overhead + v.activity_overhead_amount)*flt(v.qty)
+                total_Material_cost =total_Material_cost + (v.material_cost*flt(v.qty))
+                total_activity_cost = total_activity_cost + (v.activity_cost*flt(v.qty)) 
+                total_Material_margin_amount = total_Material_margin_amount +(v.material_margin_amount*flt(v.qty))
+                total_activity_margin_amount = total_activity_margin_amount + (v.activity_margin_amount*flt(v.qty))
+                total_Material_with_margin = total_Material_with_margin + (v.total_material_amount_with_margin*flt(v.qty))
+                total_activity_with_margin = total_activity_with_margin + (v.total_activity_amount_with_margin*flt(v.qty))
+                total_material_overhead     = total_material_overhead + (v.material_overhead_amount*flt(v.qty))
+                total_activity_overhead     = total_activity_overhead + (v.activity_overhead_amount*flt(v.qty))
             })  
             frm.set_value("total_material_cost",total_Material_cost);
             frm.set_value("total_activity_cost",total_activity_cost);
