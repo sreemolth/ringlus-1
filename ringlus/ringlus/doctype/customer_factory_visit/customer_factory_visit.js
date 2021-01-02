@@ -3,6 +3,19 @@
 
 frappe.ui.form.on('Customer Factory Visit', {
 	// refresh: function(frm) {
+        onload:function(frm,cdt,cdn){
+            var d =locals[cdt][cdn]
+                frm.set_query("opportunity", function() {
+                    return {
+                        filters: [
+                            ["Opportunity","party_name", "=", d.customer]  
+                            //["is_group","=",1]
+                        ]
+                    }
+                });
+                frm.refresh_field("opportunity");
+            
+        }, 
         validate:function(frm,cdt,cdn){
             var d=locals[cdt][cdn]
             var visit_date=d.visit_date
