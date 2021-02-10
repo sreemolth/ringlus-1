@@ -1,5 +1,14 @@
 frappe.ui.form.on("Quotation", {
-    refresh: function(frm){
+    refresh: function(frm, cdt, cdn){
+        /*frm.fields_dict['items'].grid.get_field('item_code').get_query = function(doc, cdt, cdn) {
+            var child = locals[cdt][cdn];
+            return {    
+                filters:[
+                    ['item_code', 'like', 'opp_%']
+                ]
+            }
+        }
+        frm.refresh_field("items");*/
 
     },
     onload:function(frm){
@@ -249,5 +258,6 @@ activity_margin_amount: function(frm,cdt,cdn) {
                 frappe.model.set_value(v.doctype, v.name,"material_overhead",frm.doc.material_overhead)
             })
         })
-    }
+    },
+
     });

@@ -27,51 +27,50 @@ def on_sales_order_on_submit(doc, handler=""):
     from `tabSales Order Item` si, `tabSales Order` s
     where s.name = si.parent and si.parenttype = 'Sales Order'
     and s.docstatus = 1 and si.parent = %s""",(doc.name),as_dict=1)
-    serialday=frappe.utils.get_datetime(doc.transaction_date).strftime('%d')
-    serialmnth=frappe.utils.get_datetime(doc.transaction_date).strftime('%m')
-    serialyear=frappe.utils.get_datetime(doc.transaction_date).strftime('%Y')
-    for s in item_list:
-        for x in range(int(s.qty)):
-            item2 = frappe.new_doc('Product Serial No')
-            item2.flags.ignore_permissions  = True
-            item2.serial_no = make_autoname('RNG'+serialday+serialmnth+serialyear+'-.#####')
-            item2.item_code = s.item_code
-            item2.sales_order=doc.name
-            item2.update({
-                'serial_no':item2.serial_no,
-                'item_code': item2.item_code,
-                'sales_order':item2.sales_order
-            }).insert()
-    frappe.msgprint(msg = 'Serial No has been Created',
-        title = 'Notification',
-        indicator = 'green'
-    )
+    #serialday=frappe.utils.get_datetime(doc.transaction_date).strftime('%d')
+    #serialmnth=frappe.utils.get_datetime(doc.transaction_date).strftime('%m')
+    #serialyear=frappe.utils.get_datetime(doc.transaction_date).strftime('%Y')
+    #for s in item_list:
+    #    for x in range(int(s.qty)):
+    #        item2 = frappe.new_doc('Product Serial No')
+    #        item2.flags.ignore_permissions  = True
+    #        item2.serial_no = make_autoname('RNG'+serialday+serialmnth+serialyear+'-.#####')
+    #        item2.item_code = s.item_code
+    #        item2.sales_order=doc.name
+    #        item2.update({
+    #            'serial_no':item2.serial_no,
+    #            'item_code': item2.item_code,
+    #            'sales_order':item2.sales_order
+    #        }).insert()
+    #frappe.msgprint(msg = 'Serial No has been Created',
+    #    title = 'Notification',
+    #    indicator = 'green'
+    #)
     count=0
-    serial_no_list = frappe.db.sql("""select serial_no from `tabProduct Serial No` where sales_order=%s""",(doc.name),as_dict=1)
+    #serial_no_list = frappe.db.sql("""select serial_no from `tabProduct Serial No` where sales_order=%s""",(doc.name),as_dict=1)
     for d in item_list:
-        for x in serial_no_list:
+        #for x in serial_no_list:
+        for x in range(int(d.qty)):
             count=count+1
+            frappe.msgprint("welcome")
             item = frappe.new_doc('Production Plan')
             item.flags.ignore_permissions  = True
             item.production_plan_name = doc.name +'_'+d.item_code+'_'+ 'Q'+str(count)
             item.planned_completion_date = d.delivery_date
             item.for_warehouse="Work In Progress - RNG"
-            item.product_serial_no=x.serial_no
+            #item.product_serial_no=x.serial_no
             item.default_warehouse="Work In Progress - RNG"
             item.sales_order=doc.name
             item.get_items_for_mr=True
             item_list1 = frappe.db.sql("""select name ,transaction_date,customer,grand_total from `tabSales Order` where name=%s """,(doc.name),as_dict=1)
             for j in item_list1:
                 item.append('sales_orders', {
-                    'sales_order': doc.name,
-                    'sales_order_date': j.transaction_date,
-                    'customer':j.customer,
-                    'grand_total':j.grand_total
-               })
-            item_list2 = frappe.db.sql("""select si.item_code,si.item_name,si.qty,si.delivery_date,si.bom_no
-            from `tabSales Order Item` si, `tabSales Order` s
-            where s.name = si.parent and si.parenttype = 'Sales Order'
-            and s.docstatus = 1 and si.parent = %s and si.item_code=%s""",(doc.name,d.item_code),as_dict=1)
+                'sales_order': doc.name,
+                'sales_order_date': j.transaction_date,
+                'customer':j.customer,
+                'grand_total':j.grand_total
+            })
+            item_list2 = frappe.db.sql("""select si.item_code,si.item_name,si.qty,si.delivery_date,si.bom_no from `tabSales Order Item` si, `tabSales Order` s where s.name = si.parent and si.parenttype = 'Sales Order' and s.docstatus = 1 and si.parent = %s and si.item_code=%s""",(doc.name,d.item_code),as_dict=1)
             for i in item_list2:
                 item.append('po_items', {
                     'include_exploded_item':1,
@@ -85,7 +84,7 @@ def on_sales_order_on_submit(doc, handler=""):
                 'planned_completion_date': item.planned_completion_date,
                 'for_warehouse':item.for_warehouse,
                 'item_code':item.item_code,
-                'product_serial_no':item.product_serial_no,
+                #'product_serial_no':item.product_serial_no,
                 'get_items_for_mr':item.get_items_for_mr,
                 'default_warehouse':item.default_warehouse,
                 'sales_order':item.sales_order,
@@ -105,7 +104,7 @@ def on_sales_order_on_submit(doc, handler=""):
     #if order_list1:
     order_list = frappe.db.sql("""select sales_order from `tabOrder And Dispatch` where sales_order=%s""",(doc.name),as_dict=1)
     if not order_list:
-        item1 = frappe.new_doc('Order And Dispatch')
+        item1 = frappe.new_doc('Order n Dispatch')
         item1.flags.ignore_permissions  = True
         item1.title = doc.name+"_"+ doc.customer
         item1.sales_order=doc.name
@@ -122,7 +121,7 @@ def on_sales_order_on_submit(doc, handler=""):
         for j in production_plan_list:
             item1.append('production_plan_no', {
                 'production_plan':j.production_plan_name,
-                'product_serial_no':j.product_serial_no,
+                #'product_serial_no':j.product_serial_no,
                 'production_plan_status':j.status,
                 'delivery_date':doc.delivery_date,
                 'sales_order':doc.name
@@ -134,10 +133,10 @@ def on_sales_order_on_submit(doc, handler=""):
             'sales_order':item1.sales_order,
             'status': item1.status,
             'od_items':item1.od_items,
-            'production_plan_no':item1.production_plan_no
+            #'production_plan_no':item1.production_plan_no
             }).insert()
 
-    frappe.msgprint(msg = 'Order And Dispatch has been Created',
+    frappe.msgprint(msg = 'Order n Dispatch has been Created',
         title = 'Notification',
         indicator = 'green'
     )
@@ -222,3 +221,77 @@ def make_proforma_invoice(source_name, target_doc=None, ignore_permissions=False
     }, target_doc, postprocess, ignore_permissions=ignore_permissions)
 
     return doclist
+
+
+#@frappe.whitelist()
+#def get_warranty(doc, Handler=""):
+#    for x in doc.items:
+#        list = frappe.db.sql("""select si.item_name,si.warranty from `tabSales Order` as s inner join `tabSales Order Item` as si where si.item_name=%s and s.name=%s""",((doc.name), x.item_name), as_dict=1)
+#    return list
+
+@frappe.whitelist()
+def make_delivery_note(source_name, target_doc=None, skip_item_mapping=False):
+	def set_missing_values(source, target):
+		target.ignore_pricing_rule = 1
+		target.run_method("set_missing_values")
+		target.run_method("set_po_nos")
+		target.run_method("calculate_taxes_and_totals")
+
+		if source.company_address:
+			target.update({'company_address': source.company_address})
+		else:
+			# set company address
+			target.update(get_company_address(target.company))
+
+		if target.company_address:
+			target.update(get_fetch_values("Delivery Note", 'company_address', target.company_address))
+
+	def update_item(source, target, source_parent):
+		count=0
+		for i in range(int(source.qty)):
+			count=count+1
+			target.base_amount = (flt(source.qty) - flt(source.delivered_qty)) * flt(source.base_rate)
+			target.amount = (flt(source.qty) - flt(source.delivered_qty)) * flt(source.rate)
+			target.qty = flt(source.qty) - flt(source.delivered_qty)
+
+			item = get_item_defaults(target.item_code, source_parent.company)
+			item_group = get_item_group_defaults(target.item_code, source_parent.company)
+
+			if item:
+			    target.cost_center = frappe.db.get_value("Project", source_parent.project, "cost_center") \
+				    or item.get("buying_cost_center") \
+				    or item_group.get("buying_cost_center")
+
+	mapper = {
+		"Sales Order": {
+			"doctype": "Delivery Note",
+			"validation": {
+				"docstatus": ["=", 1]
+			}
+		},
+		"Sales Taxes and Charges": {
+			"doctype": "Sales Taxes and Charges",
+			"add_if_empty": True
+		},
+		"Sales Team": {
+			"doctype": "Sales Team",
+			"add_if_empty": True
+		}
+	}
+	
+	if not skip_item_mapping:
+		mapper["Sales Order Item"] = {
+			"doctype": "Delivery Note Item",
+			"field_map": {
+				"rate": "rate",
+				"name": "so_detail",
+				"parent": "against_sales_order",
+                "warranty":"warranty"
+			},
+			"postprocess": update_item,
+			"condition": lambda doc: abs(doc.delivered_qty) < abs(doc.qty) and doc.delivered_by_supplier!=1
+		}
+
+	target_doc = get_mapped_doc("Sales Order", source_name, mapper, target_doc, set_missing_values)
+
+	return target_doc

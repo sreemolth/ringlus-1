@@ -56,7 +56,31 @@ frappe.ui.form.on('BOM', {
         var total=nested_operating_cost+nmc
         frm.set_value("total_nested_bom_cost",total)
     },
+    /*refresh:function(frm, cdt, cdn){
+        frappe.call({
+            method:"ringlus.ringlus.doctype.bom.bom_custom.get_sellable_item_name",
+            args:{
+            },
+            callback: function(s) {
+                if(!s.exc){
+                    console.log(s.message);                        
+                    for (var i=0; i<=s.message.length; i++){
+                        item.push(s.message[i].item_name);
+                    }
+                }
+                
+            }
+            
+        });
+        frm.fields_dict['items'].grid.get_field('item_code').get_query = function(doc, cdt, cdn) {
+            var child = locals[cdt][cdn];
+            return {    
+                filters:[
+                    ['item_name', 'like', 'opp_%']
+                ]
+            }
+        }
+        frm.refresh_field("items");
     
-    
-   
+    }*/
 });

@@ -1,0 +1,30 @@
+{
+ "creation": "2021-02-04 17:31:08.114232",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "product_serial_number"
+ ],
+ "fields": [
+  {
+   "fieldname": "product_serial_number",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Product Serial Number",
+   "options": "Product Serial No",
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-02-04 17:31:08.114232",
+ "modified_by": "Administrator",
+ "module": "Ringlus",
+ "name": "Pdct Serial No",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
