@@ -35,6 +35,6 @@ def make_material_request(source_name, target_doc=None):
 @frappe.whitelist()
 def get_sales_order_details(customer):
     
-    project_list = frappe.db.sql(""" select distinct sales_order from `tabService Level Agreement` where customer= %s""",(customer),as_dict=1)
+    project_list1 = frappe.db.sql(""" select distinct sales_order from `tabService Level Agreement` where customer= %s""",(customer),as_dict=1)
 
-    return project_list
+    return project_list1

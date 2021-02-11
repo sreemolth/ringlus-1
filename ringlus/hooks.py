@@ -108,7 +108,6 @@ doc_events = {
     #"Delivery Note":{
     #    "on_submit":"ringlus.ringlus.doctype.delivery_note.delivery_note.delivery_note_on_approve"
     #}
-
 }
 
 # Scheduled Tasks

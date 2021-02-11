@@ -218,6 +218,7 @@ frappe.ui.form.on('Delivery Note', {
     }
 });*/
 
+
 frappe.ui.form.on('Delivery Note', {
     
     refresh: function(frm) {

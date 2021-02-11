@@ -222,13 +222,6 @@ def make_proforma_invoice(source_name, target_doc=None, ignore_permissions=False
 
     return doclist
 
-
-#@frappe.whitelist()
-#def get_warranty(doc, Handler=""):
-#    for x in doc.items:
-#        list = frappe.db.sql("""select si.item_name,si.warranty from `tabSales Order` as s inner join `tabSales Order Item` as si where si.item_name=%s and s.name=%s""",((doc.name), x.item_name), as_dict=1)
-#    return list
-
 @frappe.whitelist()
 def make_delivery_note(source_name, target_doc=None, skip_item_mapping=False):
 	def set_missing_values(source, target):

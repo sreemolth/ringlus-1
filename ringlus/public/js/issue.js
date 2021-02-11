@@ -29,6 +29,7 @@ cur_frm.cscript.make_material_request = function(doc){
 
 
 
+
 /*frappe.ui.form.on('Issue',{
     validate: function(frm, cdt, cdn){
         var d = locals[cdt][cdn];
