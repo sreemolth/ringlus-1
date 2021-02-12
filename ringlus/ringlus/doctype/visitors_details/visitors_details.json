@@ -1,47 +1,41 @@
 {
- "creation": "2020-12-30 10:02:36.133745",
- "doctype": "DocType",
- "editable_grid": 1,
- "engine": "InnoDB",
- "field_order": [
-  "visitor_name",
-  "designation"
- ],
- "fields": [
-  {
-   "fieldname": "visitor_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Visitor Name"
-  },
-  {
-   "fieldname": "designation",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Designation"
-  }
- ],
- "modified": "2020-12-30 10:19:20.382942",
- "modified_by": "Administrator",
- "module": "Ringlus",
- "name": "Visitors Details",
- "owner": "Administrator",
- "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  }
- ],
- "quick_entry": 1,
- "sort_field": "modified",
- "sort_order": "DESC",
- "track_changes": 1
-}
+    "creation": "2020-12-31 16:37:27.000074",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+     "name1",
+     "designation",
+     "contact"
+    ],
+    "fields": [
+     {
+      "fieldname": "name1",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Name"
+     },
+     {
+      "fieldname": "designation",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Designation"
+     },
+     {
+      "fieldname": "contact",
+      "fieldtype": "Data",
+      "label": "Contact"
+     }
+    ],
+    "istable": 1,
+    "modified": "2021-01-02 15:20:16.769570",
+    "modified_by": "Administrator",
+    "module": "Ringlus",
+    "name": "Visitors Details",
+    "owner": "Administrator",
+    "permissions": [],
+    "quick_entry": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+   }

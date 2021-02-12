@@ -27,35 +27,6 @@ cur_frm.cscript.make_material_request = function(doc){
     }) 
 };
 
-
-
-
-/*frappe.ui.form.on('Issue',{
-    validate: function(frm, cdt, cdn){
-        var d = locals[cdt][cdn];
-        frappe.call({
-            method:"frappe.client.get_value",
-            args: {
-                doctype:"Service Level Agreement",
-                filters: {
-                    'name': frm.doc.service_level_agreement,
-                },
-                fieldname:['warranty']
-            }, 
-            callback: function(r) { 
-                if(!r.exc){
-                    frappe.model.set_value(d.doctype, d.name,"warranty",r.message.warranty)
-                }
-            }
-        })
-        
-    }
-})*/
-
-
-
-
-
 frappe.ui.form.on('Issue',{
     sales_order:function(frm,cdt,cdn){
         

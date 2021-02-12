@@ -28,11 +28,11 @@ app_license = "MIT"
 # include js in doctype views
 doctype_js = {"BOM" : "public/js/bom.js",
 "Production Plan":"public/js/production_plan.js",
-"Purchase Receipt":"public/js/purchase_receipt.js",
+#"Purchase Receipt":"public/js/purchase_receipt.js",
 "Quotation":"public/js/quotation.js",
 "Sales Order":"public/js/sales_order.js",
 "Delivery Note":"public/js/delivery_note.js",
-"Purchase Invoice":"public/js/purchase_invoice.js",
+"Material Reques":"public/js/material_request.js",
 "Issue":"public/js/issue.js"}
 
 doctype_list_js = {"Opportunity":"public/js/opportunity_list.js"}
@@ -98,17 +98,16 @@ doc_events = {
         "on_change":"ringlus.ringlus.doctype.delivery_note.delivery_note.delivery_note_on_save",
         "on_submit":"ringlus.ringlus.doctype.delivery_note.delivery_note.delivery_note_on_approve"
     },
-#    "Sales Invoice":{
-#        "on_change":"ringlus.ringlus.doctype.sales_invoice.sales_invoice.sales_invoice_on_save"
-#    },
+    "Sales Invoice":{
+        "on_change":"ringlus.ringlus.doctype.sales_invoice.sales_invoice.sales_invoice_on_save"
+    },
     "Production Plan":{
-        "on_change":"ringlus.ringlus.doctype.production_plan.production_plan.production_plan_on_save"
-        #"on_change":"ringlus.ringlus.doctype.production_plan.production_plan.production_plan_status"
+        "on_change":"ringlus.ringlus.doctype.production_plan.production_plan.production_plan_on_save",
+        #"on_submit":"ringlus.ringlus.doctype.production_plan.production_plan.make"
     }
-    #"Delivery Note":{
-    #    "on_submit":"ringlus.ringlus.doctype.delivery_note.delivery_note.delivery_note_on_approve"
-    #}
+
 }
+
 
 # Scheduled Tasks
 # ---------------

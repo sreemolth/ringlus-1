@@ -5,6 +5,7 @@ from frappe.model.document import Document
 from frappe.model.document import get_doc
 from frappe.model.document import Document
 
+
 @frappe.whitelist()
 def make_expense_claim(source_name, target_doc=None):
     target_doc = get_mapped_doc("Issue", source_name, {
