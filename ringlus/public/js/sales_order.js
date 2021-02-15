@@ -1,5 +1,4 @@
 frappe.ui.form.on('Sales Order Item', {
-    
     item_code: function(frm,cdt,cdn){
         var d = locals[cdt][cdn];
         var item_code = d.item_code;
@@ -57,3 +56,15 @@ frappe.ui.form.on('Sales Order', {
     };
 
 
+    frappe.ui.form.on('Sales Order', {
+    validate:function(frm,cdt,cdn)   {
+
+     $.each(frm.doc.items || [], function(i, v) {
+            if(v.bom_status!=1)
+            {
+                frappe.msgprint(__("BOM Should Be Approved "));
+                frappe.validated = false;
+            }
+        })
+    }
+    })

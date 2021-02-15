@@ -16,6 +16,7 @@ def delivery_note_on_save(doc,Handler=""):
                     frappe.throw(_("Sales Invoice is required"))
                 else:
                     frappe.db.sql("""update `tabProduction Plan Status` set delivery_status = %s where product_serial_no =%s""",((doc.status),d.product_serial_no))
+
     return item_list
     
 def delivery_note_on_approve(doc,Handler=""):

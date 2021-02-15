@@ -1,88 +1,88 @@
 {
-    "creation": "2020-12-31 16:35:38.348942",
-    "doctype": "DocType",
-    "editable_grid": 1,
-    "engine": "InnoDB",
-    "field_order": [
-     "customer",
-     "opportunity",
-     "column_break_3",
-     "visit_date",
-     "reason",
-     "section_break_6",
-     "visitors_details",
-     "amended_from"
-    ],
-    "fields": [
-     {
-      "fieldname": "customer",
-      "fieldtype": "Link",
-      "label": "Customer",
-      "options": "Customer"
-     },
-     {
-      "fieldname": "opportunity",
-      "fieldtype": "Link",
-      "label": "Opportunity ",
-      "options": "Opportunity"
-     },
-     {
-      "fieldname": "visit_date",
-      "fieldtype": "Date",
-      "label": "Visit Date"
-     },
-     {
-      "fieldname": "reason",
-      "fieldtype": "Select",
-      "label": "Reason",
-      "options": "\nProduct Inspection\nFacility Show case\nProduct Delivery"
-     },
-     {
-      "fieldname": "visitors_details",
-      "fieldtype": "Table",
-      "label": "Visitors Details",
-      "options": "Visitors Details"
-     },
-     {
-      "fieldname": "column_break_3",
-      "fieldtype": "Column Break"
-     },
-     {
-      "fieldname": "section_break_6",
-      "fieldtype": "Section Break"
-     },
-     {
-      "fieldname": "amended_from",
-      "fieldtype": "Link",
-      "label": "Amended From",
-      "no_copy": 1,
-      "options": "Customer Factory Visit",
-      "print_hide": 1,
-      "read_only": 1
-     }
-    ],
-    "is_submittable": 1,
-    "modified": "2020-12-31 16:42:31.384490",
-    "modified_by": "Administrator",
-    "module": "Ringlus",
-    "name": "Customer Factory Visit",
-    "owner": "Administrator",
-    "permissions": [
-     {
-      "create": 1,
-      "delete": 1,
-      "email": 1,
-      "export": 1,
-      "print": 1,
-      "read": 1,
-      "report": 1,
-      "role": "System Manager",
-      "share": 1,
-      "write": 1
-     }
-    ],
-    "quick_entry": 1,
-    "sort_field": "modified",
-    "sort_order": "DESC",
-    "track_changes": 1
-   }
+ "creation": "2020-12-31 16:35:38.348942",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "opportunity",
+  "column_break_3",
+  "visit_date",
+  "reason",
+  "section_break_6",
+  "visitors_details",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "opportunity",
+   "fieldtype": "Link",
+   "label": "Opportunity ",
+   "options": "Opportunity"
+  },
+  {
+   "fieldname": "visit_date",
+   "fieldtype": "Date",
+   "label": "Visit Date"
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Select",
+   "label": "Reason",
+   "options": "\nProduct Inspection\nFacility Show case\nProduct Delivery"
+  },
+  {
+   "fieldname": "visitors_details",
+   "fieldtype": "Table",
+   "label": "Visitors Details",
+   "options": "Visitors Details"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Customer Factory Visit",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2020-12-31 16:42:31.384490",
+ "modified_by": "Administrator",
+ "module": "Ringlus",
+ "name": "Customer Factory Visit",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

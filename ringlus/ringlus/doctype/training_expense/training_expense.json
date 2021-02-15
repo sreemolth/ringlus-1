@@ -1,0 +1,48 @@
+{
+ "creation": "2020-12-31 15:01:57.688870",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "service_item",
+  "frequency",
+  "expense_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "service_item",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Traning Type",
+   "options": "\nCourse\nSeminar",
+   "reqd": 1
+  },
+  {
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Frequency",
+   "options": "\nDaily\nWeekly\nMonthly\nQuarterly\nHalf Yearly\nYearly",
+   "reqd": 1
+  },
+  {
+   "fieldname": "expense_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Expense",
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-01-02 12:19:04.035390",
+ "modified_by": "Administrator",
+ "module": "Ringlus",
+ "name": "Training Expense",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

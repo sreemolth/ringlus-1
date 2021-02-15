@@ -32,8 +32,9 @@ doctype_js = {"BOM" : "public/js/bom.js",
 "Quotation":"public/js/quotation.js",
 "Sales Order":"public/js/sales_order.js",
 "Delivery Note":"public/js/delivery_note.js",
-"Material Reques":"public/js/material_request.js",
-"Issue":"public/js/issue.js"}
+"Issue":"public/js/issue.js",
+"Material Reques":"public/js/material_request.js"}
+
 
 doctype_list_js = {"Opportunity":"public/js/opportunity_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
@@ -98,7 +99,7 @@ doc_events = {
         "on_change":"ringlus.ringlus.doctype.delivery_note.delivery_note.delivery_note_on_save",
         "on_submit":"ringlus.ringlus.doctype.delivery_note.delivery_note.delivery_note_on_approve"
     },
-    "Sales Invoice":{
+   "Sales Invoice":{
         "on_change":"ringlus.ringlus.doctype.sales_invoice.sales_invoice.sales_invoice_on_save"
     },
     "Production Plan":{
@@ -138,10 +139,7 @@ doc_events = {
 # Overriding Methods
 # ------------------------------
 #
-# override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "ringlus.event.get_events"
-# }
-#
+
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
