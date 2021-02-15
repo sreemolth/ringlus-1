@@ -32,7 +32,9 @@ doctype_js = {"BOM" : "public/js/bom.js",
 "Quotation":"public/js/quotation.js",
 "Sales Order":"public/js/sales_order.js",
 "Delivery Note":"public/js/delivery_note.js",
+"Issue":"public/js/issue.js",
 "Material Reques":"public/js/material_request.js"}
+
 
 doctype_list_js = {"Opportunity":"public/js/opportunity_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
@@ -94,7 +96,8 @@ doc_events = {
         "on_submit":"ringlus.ringlus.doctype.sales_order.sales_order.on_sales_order_on_submit"
     },
     "Delivery Note":{
-        "on_change":"ringlus.ringlus.doctype.delivery_note.delivery_note.delivery_note_on_save"
+        "on_change":"ringlus.ringlus.doctype.delivery_note.delivery_note.delivery_note_on_save",
+        "on_submit":"ringlus.ringlus.doctype.delivery_note.delivery_note.delivery_note_on_approve"
     },
    "Sales Invoice":{
         "on_change":"ringlus.ringlus.doctype.sales_invoice.sales_invoice.sales_invoice_on_save"
@@ -105,6 +108,7 @@ doc_events = {
     }
 
 }
+
 
 # Scheduled Tasks
 # ---------------
