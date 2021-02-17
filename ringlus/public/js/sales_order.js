@@ -56,7 +56,7 @@ frappe.ui.form.on('Sales Order', {
     };
 
 
-    frappe.ui.form.on('Sales Order', {
+    /*frappe.ui.form.on('Sales Order', {
     validate:function(frm,cdt,cdn)   {
 
      $.each(frm.doc.items || [], function(i, v) {
@@ -67,4 +67,4 @@ frappe.ui.form.on('Sales Order', {
             }
         })
     }
-    })
+    })*/
