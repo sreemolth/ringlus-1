@@ -24,7 +24,6 @@ def delivery_note_on_approve(doc,Handler=""):
         delivery_note_list=frappe.db.sql("""select d.customer,d.posting_date,di.warranty,di.against_sales_order,di.item_name,di.qty,di.end_date,di.product_serial_no from `tabDelivery Note` as d INNER JOIN `tabDelivery Note Item` as di where d.name=di.parent and di.parent=%s and di.item_name=%s""",((doc.name), x.item_name), as_dict=1) 
         for s in delivery_note_list:
             for i in range(int(s.qty)):
-                frappe.msgprint("helloooooo")
                 item = frappe.new_doc('Service Level Agreement')
                 item.flags.ignore_permissions  = True
                 item.customer = s.customer

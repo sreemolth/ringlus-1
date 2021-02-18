@@ -28,28 +28,24 @@ frappe.ui.form.on('Delivery Note', {
             
 
                 if (d.warranty == 'No Warranty'){
-                    alert("No Warranty");
                     var x = d.po_date;
                     var date = new Date(x);
                     date.setDate(date.getDate() + 1);
                     frappe.model.set_value(d.doctype, d.name,"end_date",frappe.datetime.add_days(date))
                 }
                 else if(d.warranty == '6 Months'){
-                    alert("6 Months");
                     var x = d.po_date;
                     var date = new Date(x);
                     date.setMonth(date.getMonth() +6);
                     frappe.model.set_value(d.doctype, d.name,"end_date",frappe.datetime.add_days(date))
                 }
                 else if(d.warranty == '12 Months'){
-                    alert("12 Months");
                     var x = d.po_date;
                     var date = new Date(x);
                     date.setFullYear( date.getFullYear() + 1 );
                     frappe.model.set_value(d.doctype, d.name,"end_date",frappe.datetime.add_days(date))
                 }
                 else if(d.warranty == '18 Months'){
-                    alert("18 Months");
                     var x = d.po_date;
                     var date = new Date(x);
                     var z= date.setFullYear( date.getFullYear() + 1 );
@@ -58,7 +54,6 @@ frappe.ui.form.on('Delivery Note', {
                     frappe.model.set_value(d.doctype, d.name,"end_date",frappe.datetime.add_days(y))
                 }
                 else if(d.warranty == '24 Months'){
-                    alert("24 Months");
                     var x = d.po_date;
                     var date = new Date(x);
                     date.setFullYear( date.getFullYear() + 2 );
